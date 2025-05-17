@@ -23,6 +23,7 @@ license {
 libc_common_flags = [
     "-D_LIBC=1",
     "-D__BIONIC_LP32_USE_STAT64",
+    "-O3",
     "-Wall",
     "-Wextra",
     "-Wunused",
@@ -92,7 +93,7 @@ cc_defaults {
 
     // lld complains about duplicate symbols in libcrt and libgcc. Suppress the
     // warning since this is intended right now.
-    ldflags: ["-Wl,-z,muldefs"],
+    ldflags: ["-Wl,-z,muldefs,-O3"],
 
     product_variables: {
         malloc_zero_contents: {
